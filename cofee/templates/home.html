@@ -1,28 +1,20 @@
 {% extends 'base.html' %}
 {% block content %}
-<div class="col"></div>
+<h4 class="'p-4">Feel a Good Coffee</h4>
+<div class="row">
+    {% for cofee in cofees %}
     <div class="col">
-        <h2>
-            Feel a Good Coffee
-        </h2>
+        <div class="card" style="width: 18rem;">
+            <img src="{{cofee.image}}" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">{{ cofee.name }}</h5>
+              <p class="card-text">${{ cofee.price }}</p>
+              <a href="#" class="btn btn-primary">Add to Cart</a>
+            </div>
+          </div>
     </div>
-    <div class="row">
-        <ul>
-            {% for cofee in cofees %}
-            <li>
-                <div class="card" style="width: 18rem;">
-                    <img src="..." class="card-img-top" alt="...">
-                    <div class="card-body">
-                      <h5 class="card-title">{{ cofee.name }}(${{ cofee.price }})</h5>
-                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                      <a href="#" class="btn btn-primary">Go somewhere</a>
-                    </div>
-                  </div>
-                 
-            </li>
-            {% endfor %}
-        </ul>
-    </div>
+    {% endfor %}   
+</div>
 
 
 {% endblock %}
